@@ -1,0 +1,12 @@
+<div class="container recipe">
+	<div class="row">
+		<div class="container col-xs-3">
+			<h4><%= @recipe.name %></p></h4>
+			<p><%= @recipe.description %></p>
+			<p>Preparation Time (mins): <%= @recipe.preptime %></p>
+			<%= image_tag @recipe.avatar.url, class: "img-responsive" %>
+			<p> Instructions: </p>
+			<%= link_to "Main Page", recipe_path %>
+		</div>
+	</div>
+</div>

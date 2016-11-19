@@ -1,0 +1,26 @@
+<%= form_for @recipe, :url => recipe_path(@recipe), html: { multipart: true } do |f| %>
+
+  <div>
+  Name:
+  <%= f.text_field :name %>
+  </div>
+
+  <div>
+  Description:
+  <%= f.text_field :description %>
+  </div>
+
+  <div>
+  Preparation Time (in mins)
+  <%= f.text_field :preptime %>
+  </div>
+
+  <div>
+  <%= f.file_field :avatar %>
+  </div>
+
+  <div>
+  <%= f.submit %>
+  </div>
+  
+<% end %>
