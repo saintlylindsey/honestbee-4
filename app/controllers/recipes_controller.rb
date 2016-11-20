@@ -6,16 +6,13 @@ class RecipesController < ApplicationController
 
 	def new
 		@recipe=Recipe.new
-		@step=Step.new
 	end
 
 	def create
 		@recipe=Recipe.create( recipe_params )
 		if @recipe.save 
-			flash[:notice]="Image has been uploaded."
-			redirect_to recipes_path
+			redirect_to new_recipe_step_path(@recipe)
 		else 
-			flash[:notice]="Image was not saved. Please retry."
 			render :action => :new
 		end
 	end
@@ -28,7 +25,7 @@ class RecipesController < ApplicationController
 		@recipe=Recipe.find(params[:id])
 		if @recipe.update(recipe_params)
 			flash[:notice]="Post was successfully updated"
-			redirect_to recipe_path(@recipe)
+			redirect_to edit_recipe_step_path(@recipe)
 		else 
 			flash[:notice]="Post was not saved. Please retry."
 			render :action => :new	
@@ -48,7 +45,7 @@ class RecipesController < ApplicationController
 	private
 
 	def recipe_params
-		params.require(:recipe).permit(:avatar,:name,:description,:preptime)
+		params.require(:recipe).permit(:number,:description,:recipe_id)
 	end
 
 end
