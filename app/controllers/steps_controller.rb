@@ -10,7 +10,7 @@ class StepsController < ApplicationController
 	end
 
 	def create
-		@step=@recipe.steps.create( recipe_params )
+		@step=@recipe.steps.create( steps_params )
 		@step.save 
 		# 	flash[:notice]="Recipe has been saved."
 		# 	redirect_to recipe_path(@recipe)
@@ -33,7 +33,7 @@ class StepsController < ApplicationController
 	end
 
 	def steps_params
-		params.require(:steps).permit(:avatar,:name,:description,:preptime)
+		params.require(:step).permit(:number,:description,:recipe_id)
 	end
 
 end
