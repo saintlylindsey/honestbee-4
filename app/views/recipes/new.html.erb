@@ -24,3 +24,15 @@
   </div>
   
 <% end %>
+
+<%= simple_form_for @recipe do |f| %>
+  <div>
+    <%= f.simple_fields_for :steps do |step| %>
+      <%= render 'step_fields', :f => step %>
+    <% end %>
+  <div>
+      <%= link_to_add_association 'add step', f, :steps %>
+   </div>
+ </div>
+    <%= f.submit 'Save' %>
+<% end %>

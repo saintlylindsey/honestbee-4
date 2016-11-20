@@ -6,6 +6,7 @@ class RecipesController < ApplicationController
 
 	def new
 		@recipe=Recipe.new
+		@step=Step.new
 	end
 
 	def create
