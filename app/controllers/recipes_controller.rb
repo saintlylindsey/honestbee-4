@@ -25,7 +25,7 @@ class RecipesController < ApplicationController
 		@recipe=Recipe.find(params[:id])
 		if @recipe.update(recipe_params)
 			flash[:notice]="Post was successfully updated"
-			redirect_to edit_recipe_step_path(@recipe)
+			redirect_to edit_recipe_path(@recipe)
 		else 
 			flash[:notice]="Post was not saved. Please retry."
 			render :action => :new	
@@ -45,7 +45,7 @@ class RecipesController < ApplicationController
 	private
 
 	def recipe_params
-		params.require(:steps).permit(:avatar,:name,:description,:preptime)
+		params.require(:recipe).permit(:avatar,:name,:description,:preptime,steps_attributes: [:number, :description])
 	end
 
 end

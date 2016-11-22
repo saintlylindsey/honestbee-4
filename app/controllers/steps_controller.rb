@@ -33,7 +33,7 @@ class StepsController < ApplicationController
 	end
 
 	def steps_params
-		params.require(:step).permit(:number,:description,:recipe_id)
+		params.require(:step).permit(:number,:description,:recipe_id, )
 	end
 
 end

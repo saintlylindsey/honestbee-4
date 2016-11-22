@@ -1,4 +1,4 @@
-<%= simple_form_for @recipe, :url => recipe_steps_path(@recipe), html: { multipart: true } do |f| %>
+<%= simple_form_for @recipe, :url => recipe_path(@recipe), :method => :patch, html: { multipart: true } do |f| %>
   <div>
     <%= f.simple_fields_for :steps do |step| %>
       <%= render 'step_fields', :f => step %>
